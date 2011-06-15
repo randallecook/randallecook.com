@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset=utf-8>
+	<title>HTML Tips</title>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+	<h1>HTML Tips</h1>
+	<p>HTML Skeleton (click <a href="example.html">here</a> to view page):</p>
+	<script language="javascript" type="text/javascript">
+		var req = new XMLHttpRequest();
+		req.open('GET', 'example.html', false);
+		req.send(null);
+		if (req.readyState == 4)
+		{
+			// entity encode the HTML
+			s = req.responseText;
+			s = s.replace(/&/g, "&amp;");
+			s = s.replace(/</g, "&lt;");
+			s = s.replace(/>/g, "&gt;");
+			s = s.replace(/"/g, "&quot;");
+			s = s.replace(/'/g, "&apos;");
+			
+			// write the HTML into the page
+			document.write("<pre>");
+			document.write(s);
+			document.write("</pre>");
+		}
+	</script>
+</body>
+</html>
