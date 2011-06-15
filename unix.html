@@ -7,5 +7,24 @@
 </head>
 <body>
 	<h1>Useful Unix Tips</h1>
+	<dl>
+		<dt>df - disk space free</dt>
+		<dd>My favorite is 'df -h' which reports disk usage and free space for all mounted volumes in the highest sensible units (K, M, G, etc., "human-readable").</dd>
+		
+		<dt>du - disk usage</dt>
+		<dd>My favorites are 'du -hs &lt;directory&gt;' and 'du -hs *' which report the total disk usage of a directory or all files and directories in the current directory, respectively. The '-h' option makes the output "human-readable".</dd>
+		
+		<dt>find</dt>
+		<dd>Reports the full pathname of files matching certain criteria, and optionally executes a command on them. I use "find &lt;directory&gt; -iname '*.mp3'" to list all MP3 files found below the given directory. The single quotes are needed to prevent the shell from expanding (globbing?) the *. The -iname option says to look for matching names in a case-insensitive manner.</dd>
+		
+		<dt>~/.gvfs</dt>
+		<dd>The directory where Ubuntu mounts remote drives that you connect to manually, through the "Connect to Server..." dialog.</dd>
+		
+		<dt>ls - list files</dt>
+		<dd>My favorite variant is 'ls -oh', which provides permissions, owner (but not group), size in highest sensible units (K, M, G, etc.), modification time, and filename.</dd>
+		
+		<dt>which</dt>
+		<dd>Specifies where a command is found without executing it. Useful for detecting which software you have installed.</dd>
+	</dl>
 </body>
 </html>
