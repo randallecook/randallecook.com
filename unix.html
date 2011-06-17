@@ -7,12 +7,16 @@
 </head>
 <body>
 	<h1>Useful Unix Tips</h1>
+	<h2>Commands and More</h2>
 	<dl>
 		<dt>df - disk space free</dt>
 		<dd>My favorite is 'df -h' which reports disk usage and free space for all mounted volumes in the highest sensible units (K, M, G, etc., "human-readable").</dd>
 		
 		<dt>du - disk usage</dt>
 		<dd>My favorites are 'du -hs &lt;directory&gt;' and 'du -hs *' which report the total disk usage of a directory or all files and directories in the current directory, respectively. The '-h' option makes the output "human-readable".</dd>
+		
+		<dt>echo</dt>
+		<dd>Echoes its arguments to standard output. The -e switch (under bash) lets you use things like \n and \t in the text and have them turn into newlines and tabs. Under sh, \n and \t ae interpreted automatically.</dd>
 		
 		<dt>find</dt>
 		<dd>Reports the full pathname of files matching certain criteria, and optionally executes a command on them. I use "find &lt;directory&gt; -iname '*.mp3'" to list all MP3 files found below the given directory. The single quotes are needed to prevent the shell from expanding (globbing?) the *. The -iname option says to look for matching names in a case-insensitive manner.</dd>

@@ -7,5 +7,48 @@
 </head>
 <body>
 	<h1>Bash Tips</h1>
+	<h2>For Scripts and on the Command-Line</h2>
+	<dl>
+		<dt>!$ - Last Command Argument</dt>
+		<dd>
+			<p>The !$ sequence on the command line causes the previous argument to be reused. Thus the following two groups of commands have the same effect:</p>
+			<code>
+			<pre>
+$ chmod +x path/to/file/foo
+$ ls -oh path/to/file/foo
+
+$ chmod +x path/to/file/foo
+$ ls -oh !$
+			</pre></code>
+		</dd>
+		
+		<dt>Command Prompt</dt>
+		<dd>My favorite prompt is <code>PS1='\u@\h#\#:\w\$ '</code>. This has my username, then @, then the machine (host) name, then #, then the number of commands entered, then :, then the current directory, then $ and space. It gets a little wide, but has useful information.</dd>
+		
+		<dt>Iterating over Arguments</dt>
+		<dd>
+			<p>There are several approaches to the problem of iterating over a variable number of script arguments. One approach is to treat the arguments as an array and use a loop and execute the body of the loop once for each argument:</p>
+			<code>
+			<pre>
+for arg in "$@"
+do
+	echo "$arg"
+done
+			</pre>
+			</code>
+			<p>Another approach is to only look at the first argument (<code>$1</code>), and work through them with a while loop and the <code>shift</code> command:</p>
+			<code>
+			<pre>
+while (( "$#" ))
+do
+	echo "$1"
+	shift
+done
+			</pre>
+			</code>
+			<p>Note that this is a destructuve method, and will leave <code>$#</code> empty at the end of the loop. The <code>(( "$#" ))</code> only works under bash. Under sh, use <code>[ "$#" -ne "0" ]</code>.</p>
+			<p>Note also that we use <code>"$@"</code> instead of <code>$*</code>. This is because <code>$*</code> flattens the list of arguments into a single string that happens to be space-separated, while <code>"$@"</code> preserves the list nature of the arguments. The quotes around <code>$@</code> help preserve arguments with embedded spaces. There is a great <a href="http://stackoverflow.com/questions/255898/how-to-iterate-over-arguments-in-bash-script">explanation</a> of all this on <a href="http://stackoverflow.com/">Stack Overflow</a></p>
+		</dd>
+	</dl>
 </body>
 </html>
