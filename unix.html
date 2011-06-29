@@ -15,6 +15,9 @@
 		<dt>du - disk usage</dt>
 		<dd>My favorites are 'du -hs &lt;directory&gt;' and 'du -hs *' which report the total disk usage of a directory or all files and directories in the current directory, respectively. The '-h' option makes the output "human-readable".</dd>
 		
+		<dt>DVD ripping</dt>
+		<dd>Several commands are useful for ripping DVD titles to VOB files, which can then be viewed or transcoded into another format: lsdvd to list DVD titles and their lengths, 'tccat -i /dev/dvd -Tn,-1 &lt; movie.vob' or 'mplayer dvd://n -dumpstream -dumpfile movie.vob' or 'vobcopy -n n -t movie' rip title n to file movie.vob. The tccat program runs a little faster, while mplayer seems to be able to overcome errors that tccat sometimes encounters. Sometimes with mplayer you need to say dvdnav:// instead of dvd://.</dd>
+		
 		<dt>echo</dt>
 		<dd>Echoes its arguments to standard output. The -e switch (under bash) lets you use things like \n and \t in the text and have them turn into newlines and tabs. Under sh, \n and \t ae interpreted automatically.</dd>
 		
